@@ -2,7 +2,7 @@ import subprocess
 
 from nmigen.build import *
 from nmigen.vendor.microchip_smartfusion2 import *
-from .resources import *
+from nmigen_boards.resources import *
 
 
 __all__ = ["DigiKeySmartFusion2MakerKitPlatform"]
@@ -47,5 +47,5 @@ class DigiKeySmartFusion2MakerKitPlatform(MicrochipSmartFusion2Platform):
     ]
 
 if __name__ == "__main__":
-    from .test.blinky import *
+    from nmigen_boards.test.blinky import *
     DigiKeySmartFusion2MakerKitPlatform().build(Blinky(), do_program=False)
