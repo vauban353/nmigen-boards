@@ -21,9 +21,11 @@ class DigiKeySmartFusion2MakerKitPlatform(MicrochipSmartFusion2Platform):
         Resource("clk_50mhz", 0, Pins("23", dir="i"),
                  Clock(50e6), Attrs(GLOBAL=True, IO_STANDARD="LVCMOS33")),
 
+        Resource("DEVRST_N", 0, Pins("72", dir="i"), Attrs(DEDICATED_IO="DEVRST_N")),
+
         *LEDResources(pins="129 128 125 124 123 122 118 117", invert=True, attrs=Attrs(IO_STANDARD="LVCMOS33")),
 
-        *SwitchResources(
+        *ButtonResources(
             pins="143 144",
             attrs=Attrs(IO_STANDARD="LVCMOS33")
         ),
@@ -41,7 +43,7 @@ class DigiKeySmartFusion2MakerKitPlatform(MicrochipSmartFusion2Platform):
 
     connectors = [
         Connector("mod1", 0, "83 81 90 93 88 82"),
-        Connector("j7", 0, "92 16 94 21 22"),
+        Connector("j", 7, "92 16 94 21 22"),
     ]
 
 if __name__ == "__main__":
